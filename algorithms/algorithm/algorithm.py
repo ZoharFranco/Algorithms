@@ -16,6 +16,7 @@ class Algorithm:
         """
         self.algorithm_input = algorithm_input
         self.logger = logger
+        self.algorithm_output = AlgorithmOutput()
 
     @abstractmethod
     def run(self) -> AlgorithmOutput:

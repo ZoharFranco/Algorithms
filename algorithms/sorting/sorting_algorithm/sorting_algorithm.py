@@ -29,7 +29,7 @@ class SortingAlgorithm(Algorithm):
     def run(self) -> SortingAlgorithmOutput:
         """
         Run the algorithm
-        Returns: yield next value in schedule
+        Returns: the algorithm output
         """
         self.sort_list()
         return self.algorithm_output

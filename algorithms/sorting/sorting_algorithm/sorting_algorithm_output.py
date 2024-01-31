@@ -7,4 +7,4 @@ from algorithms.algorithm.algorithm_output import AlgorithmOutput
 @dataclass
 class SortingAlgorithmOutput(AlgorithmOutput):
     sorted_list: List[Any] = field(default_factory=list)
-    total_actions: int = 0
+    total_iterations: int = 0

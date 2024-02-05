@@ -14,12 +14,12 @@ class Algorithm:
         Args:
             algorithm_input: the input of the algorithm to be run in the form of AlgorithmInput
         """
-        self.algorithm_input = algorithm_input
         self.logger = logger
+        self.algorithm_input = algorithm_input
         self.algorithm_output = AlgorithmOutput()
 
     @abstractmethod
-    def run(self) -> AlgorithmOutput:
+    def run(self):
         """
         Run the algorithm
         Returns:

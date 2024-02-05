@@ -14,12 +14,12 @@ class SchedulingAlgorithm(Algorithm):
         """
         super().__init__(algorithm_input)
         self.algorithm_input = algorithm_input
-        self.algoritm_output = SchedulingAlgorithmOutput()
+        self.algorithm_output = SchedulingAlgorithmOutput()
 
     @abstractmethod
     def is_done(self):
         """
-        Check if the algorithm is done
+        Check if the algorithm is done to end running
         Returns:
         """
         raise NotImplementedError
@@ -27,7 +27,7 @@ class SchedulingAlgorithm(Algorithm):
     @abstractmethod
     def schedule_next(self):
         """
-        Check if the algorithm is done
+        Run one iteration of scheduling
         Returns:
         """
         raise NotImplementedError
@@ -35,14 +35,25 @@ class SchedulingAlgorithm(Algorithm):
     def run(self) -> SchedulingAlgorithmOutput:
         """
         Run the algorithm
-        Returns: yield next value in schedule
+        Returns: return scheduling algorithm output
         """
-
+        self.logger.info(f"Scheduling Input: {self.algorithm_input}")
         while not self.is_done():
             self.schedule_next()
-            self.logger.info(
-                f"Pool: {self.algorithm_input.pool}, "
-                f"Queue: {self.algoritm_output.queue}, "
-                f"Total time: {self.algoritm_output.total_time}"
-            )
-        return self.algoritm_output
+        self.logger.info(f"Scheduling Output: {self.algorithm_output}")
+        return self.algorithm_output
+
+    @property
+    def pool(self):
+        return self.algorithm_input.pool
+
+    @property
+    def queue(self):
+        return self.algorithm_output.queue
+
+    @property
+    def total_time(self):
+        return self.algorithm_output.total_time
+
+    def time_passed(self, time: int):
+        self.algorithm_output.total_time += time

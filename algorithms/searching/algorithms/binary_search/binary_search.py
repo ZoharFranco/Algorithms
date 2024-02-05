@@ -1,3 +1,4 @@
+from algorithms.algorithm.utils import iteration
 from algorithms.searching.searching_algorithm.searching_algorithm import SearchingAlgorithm
 from algorithms.searching.searching_algorithm.searching_algorithm_input import SearchingAlgorithmInput
 
@@ -15,26 +16,26 @@ class BinarySearch(SearchingAlgorithm):
     def search(self):
         left, right, mid = 0, self.n - 1, 0
         while left <= right:
-            self.iteration()
+            left, right = self.search_iteration(left, right)
 
-            mid = (left + right) // 2
-            current = self.lst[mid]
+    @iteration(verbose=True)
+    def search_iteration(self, left: int, right: int):
+        self.target_index = mid = (left + right) // 2
+        current = self.lst[mid]
 
-            if current > self.target:
-                right = mid - 1
-            elif current < self.target:
-                left = mid + 1
-            else:
-                self.set_result_index(mid)
-                break
+        if current > self.target:
+            right = mid - 1
+        elif current < self.target:
+            left = mid + 1
+        elif current == self.target:
+            left = right + 1
 
-        self.set_result_index(left)
+        return left, right
 
 
 if __name__ == '__main__':
-    list_to_search = [-6, -1, 9, 21, 30]
+    list_to_search = [-100, -6, -5, -4, -1, 9, 21, 30, 100, 101]
     target = -4
     binary_search_input = SearchingAlgorithmInput(list_to_search=list_to_search, target=target)
 
-    out_put = BinarySearch(binary_search_input).run()
-    print(out_put)
+    BinarySearch(binary_search_input).run()

@@ -4,4 +4,4 @@ import dataclasses
 
 @dataclasses.dataclass
 class AlgorithmOutput(abc.ABC):
-    pass
+    total_iterations: int = 0

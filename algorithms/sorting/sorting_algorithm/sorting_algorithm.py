@@ -1,10 +1,10 @@
 from abc import abstractmethod
+from copy import deepcopy
 from typing import Any, List
 
 from algorithms.algorithm.algorithm import Algorithm
 from algorithms.sorting.sorting_algorithm.sorting_algorithm_input import SortingAlgorithmInput
 from algorithms.sorting.sorting_algorithm.sorting_algorithm_output import SortingAlgorithmOutput
-from utils.types_utils.lists_utils import ListUtils
 
 
 class SortingAlgorithm(Algorithm):
@@ -15,23 +15,27 @@ class SortingAlgorithm(Algorithm):
             algorithm_input: scheduling algorithm input
         """
         super().__init__(algorithm_input)
-        self.algorithm_input = algorithm_input
+        self.algorithm_input = deepcopy(algorithm_input)
         self.algorithm_output = SortingAlgorithmOutput(sorted_list=algorithm_input.list_to_sort[:])
 
     @abstractmethod
-    def sort_list(self) -> SortingAlgorithmOutput:
+    def sort_list(self):
         """
-        Check if the algorithm is done
+        Sort the list to be sorted as wanted
         Returns:
         """
         raise NotImplementedError
 
     def run(self) -> SortingAlgorithmOutput:
         """
-        Run the algorithm
+        Run the sorting algorithm
         Returns: the algorithm output
         """
+
+        self.logger.info(f"Sorting Input: {self.algorithm_input}")
         self.sort_list()
+        self.logger.info(f"Sorting Output: {self.algorithm_output}")
+
         return self.algorithm_output
 
     def iteration(self):
@@ -41,12 +45,10 @@ class SortingAlgorithm(Algorithm):
     def lst(self) -> List[Any]:
         return self.algorithm_output.sorted_list
 
+    @lst.setter
+    def lst(self, lst: List[Any]):
+        self.algorithm_output.sorted_list = lst
+
     @property
     def n(self) -> int:
         return len(self.lst)
-
-    def set_lst(self, lst: List[Any]):
-        self.algorithm_output.sorted_list = lst
-
-    def swap_lst_items(self, i: int, j: int):
-        ListUtils.swap_items(self.lst, i, j)

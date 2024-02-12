@@ -1,5 +1,6 @@
 from abc import abstractmethod
 from copy import deepcopy
+from typing import List, Any
 
 from algorithms.algorithm.algorithm import Algorithm
 from algorithms.scheduling.scheduling_algorithm.scheduling_algorithm_input import SchedulingAlgorithmInput
@@ -45,15 +46,15 @@ class SchedulingAlgorithm(Algorithm):
         return self.algorithm_output
 
     @property
-    def pool(self):
+    def pool(self) -> List[Any]:
         return self.algorithm_input.pool
 
     @property
-    def queue(self):
+    def queue(self) -> List[Any]:
         return self.algorithm_output.queue
 
     @property
-    def total_time(self):
+    def total_time(self) -> int:
         return self.algorithm_output.total_time
 
     def time_passed(self, time: int):

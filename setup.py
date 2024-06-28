@@ -1,10 +1,17 @@
 from setuptools import setup, find_packages
+# read the contents of your README file
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='falgopy',
-    version='0.1.0',    
+    version='1.0.0',    
     description='A powerful algorithms package',
-    long_description='A powerful algorithms package - variety of algorithms types',
+    
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+
     url='',
     author='Zohar franco',
     author_email='',

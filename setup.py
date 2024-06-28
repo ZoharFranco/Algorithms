@@ -12,7 +12,6 @@ setup(
     classifiers=[
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
-       'Topic :: Software Development :: Algo Tools',
         'Programming Language :: Python :: 3',
     ],
     keywords='CS data data structures algorithms algo',

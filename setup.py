@@ -4,6 +4,7 @@ setup(
     name='falgopy',
     version='0.1.0',    
     description='A powerful algorithms package',
+    long_description='A powerful algorithms package - variety of algorithms types',
     url='',
     author='Zohar franco',
     author_email='',

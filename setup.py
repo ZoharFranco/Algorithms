@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='falgopy',
-    version='2.0.0',
+    version='3.0.0',
     description='A powerful falgopy package',
 
     long_description=long_description,

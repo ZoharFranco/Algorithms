@@ -15,10 +15,8 @@ class BinarySearch(SearchingAlgorithm):
 
     def search(self):
         left, right, mid = 0, self.n - 1, 0
-
-        while left < right and self.lst[left] != self.target:
+        while left <= right and not self.target_index:
             left, right = self.search_iteration(left, right)
-
         self.target_index = left
 
     @iteration(verbose=True)

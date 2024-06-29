@@ -7,10 +7,10 @@ def iteration(verbose=False):
             self.algorithm_output.total_iterations += 1
             result = func(self, *args, **kwargs)
             if verbose:
+                self.logger.name = self.__class__.__name__
                 self.logger.info(f"Total Iterations: {self.algorithm_output.total_iterations}")
                 self.logger.info(f"Input: {self.algorithm_input}")
                 self.logger.info(f"Output: {self.algorithm_output}")
-
             return result
 
         return wrapper

@@ -1,12 +1,8 @@
-import logging
 from unittest import TestCase
 
 from falgopy.searching.algorithms.binary_search.binary_search import BinarySearch
 from falgopy.searching.searching_algorithm.searching_algorithm_input import SearchingAlgorithmInput
 from falgopy.searching.searching_algorithm.searching_algorithm_output import SearchingAlgorithmOutput
-from falgopy.utils.logger.logger import logger
-
-logger.setLevel(logging.ERROR)
 
 
 class TestBinarySearch(TestCase):
@@ -17,7 +13,7 @@ class TestBinarySearch(TestCase):
 
     @staticmethod
     def get_inputs():
-        return [(SearchingAlgorithmInput(list_to_search=[-100, -6, -5, -4, -1, 9, 21, 30, 100, 101, 200, 203, 205], target=-4),
-                 SearchingAlgorithmOutput(target_index=3, total_iterations=2)),
-                (SearchingAlgorithmInput(list_to_search=[-100, -6, -5, -4, -1, 9, 21, 30, 100, 101, 200, 203, 205], target=9),
-                 SearchingAlgorithmOutput(target_index=5, total_iterations=3))]
+        return [(SearchingAlgorithmInput(list_to_search=[-100, -6, -5, -4, -1, 9, 21, 30, 100, 101, 200], target=-4),
+                 SearchingAlgorithmOutput(target_index=3, total_iterations=3)),
+                (SearchingAlgorithmInput(list_to_search=[-100, -6, -5, -4, -1, 9, 21, 30, 100, 101, 200], target=9),
+                 SearchingAlgorithmOutput(target_index=5, total_iterations=1))]

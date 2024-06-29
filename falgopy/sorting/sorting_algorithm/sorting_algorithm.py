@@ -31,7 +31,7 @@ class SortingAlgorithm(Algorithm):
         Run the sorting algorithm
         Returns: the algorithm output
         """
-
+        self.logger.name = self.__class__.__name__
         self.logger.info(f"Sorting Input: {self.algorithm_input}")
         self.sort_list()
         self.logger.info(f"Sorting Output: {self.algorithm_output}")

@@ -5,23 +5,30 @@
 # Binary search example
 from falgopy.searching.searching_algorithm.searching_algorithm_input import SearchingAlgorithmInput
 from falgopy.searching.algorithms.binary_search.binary_search import BinarySearch
-print(BinarySearch(SearchingAlgorithmInput(list_to_search=[1, 2, 3], target=2)).target_index)
+
+result = BinarySearch(SearchingAlgorithmInput(list_to_search=[1, 2, 3], target=2)).run()
+print(result.target_index)
 
 
 # Round rubin example
+
 from falgopy.scheduling.algorithms.round_robin.round_robin import RoundRobin
 from falgopy.scheduling.algorithms.round_robin.round_robin_input import RoundRobinInput
 from falgopy.utils.models.task import Task
 
-print(RoundRobin(RoundRobinInput(pool=[
+result = RoundRobin(
+    RoundRobinInput(
+        pool=[
             Task(name="Task 1", remaining_time=10),
             Task(name="Task 2", remaining_time=5),
             Task(name="Task 3", remaining_time=3),
             Task(name="Task 4", remaining_time=1),
-        ])).algorithm_output.queue)
+        ],
+        time_slice=6)
+).run()
 
+print(result.queue)
 ```
-
 
 # Algorithms
 

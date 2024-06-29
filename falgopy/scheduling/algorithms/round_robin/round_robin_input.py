@@ -8,4 +8,4 @@ from falgopy.utils.models.task import Task
 @dataclass
 class RoundRobinInput(SchedulingAlgorithmInput):
     pool: List[Task] = field(default_factory=list)
-    time_slice: int = 0
+    time_slice: int = 1

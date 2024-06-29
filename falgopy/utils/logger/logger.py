@@ -23,3 +23,4 @@ class CustomLogger(logging.Logger):
 
 # Create a logger
 logger = CustomLogger('Algorithm logger')
+

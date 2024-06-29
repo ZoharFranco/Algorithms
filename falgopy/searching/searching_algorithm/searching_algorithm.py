@@ -31,6 +31,7 @@ class SearchingAlgorithm(Algorithm):
         Run the algorithm, change the algorithm output
         """
 
+        self.logger.name = self.__class__.__name__
         self.logger.info(f"Searching Input: {self.algorithm_input}")
         self.search()
         self.logger.info(f"Searching Output: {self.algorithm_output}")

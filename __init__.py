@@ -1,1 +1,1 @@
-import algorithms as falgopy
+import falgopy as falgopy
